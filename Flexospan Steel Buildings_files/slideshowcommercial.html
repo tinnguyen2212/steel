@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0049)https://www.flexospan.com/slideshowcommercial.htm -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="nofollow,noindex">
+  <script language="javascript" src="./shared.js.download" type="text/javascript"></script>
+  <title>Flexospan Slideshow - Commercial</title>
+  <style>
+  .fadein { position:relative; height:180px; width:275px; border-style: solid; border-width: 1px;}
+  .fadein img { position:absolute; left:0; top:0; }
+  </style>
+  <script src="./jquery.min.js.download"></script>
+  <script>
+  $(function(){
+    $('.fadein img:gt(0)').hide();
+    setInterval(function(){
+      $('.fadein :first-child').fadeOut()
+         .next('img').fadeIn()
+         .end().appendTo('.fadein');}, 
+      6000);
+  });
+  </script>
+  <!--<base target="_top">--><base href="." target="_top">
+</head>
+<body marginwidth="0" marginheight="0" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+  <div class="fadein">   <img src="./slideshowcommercial3.png" style=""><img src="./slideshowcommercial4.png" style="display: none;"><img src="./slideshowcommercial1.png" style="display: none;"><img src="./slideshowcommercial2.png" style="display: none;"></div>
+
+
+</body></html>

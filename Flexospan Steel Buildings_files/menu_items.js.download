@@ -1,0 +1,393 @@
+BLANK_IMAGE = 'images/b.gif';
+
+var STYLE = {
+	border:1,			// item's border width, pixels; zero means "none"
+	shadow:0,			// item's shadow size, pixels; zero means "none"
+	color:{
+		border:"#003300",	// color of the item border, if any
+		shadow:"#FBF8F4",	// color of the item shadow, if any
+		bgON:"006600",		// background color for the items
+		bgOVER:"#FBF8F4"	// background color for the item which is under mouse right now
+	},
+	css:{
+		ON:"clsCMOn",		// CSS class for items
+		OVER:"clsCMOver"	// CSS class for item which is under mouse
+	}
+};
+
+var MENU_ITEMS = [
+	{pos:'relative', itemoff:[22,0], leveloff:[0,142], delay:500, style:STYLE, size:[24,142]},
+	{code:"Home Page", url:"https://www.flexospan.com", format:{itemoff:[22,0], size:[24,142]},
+		sub:[
+			{itemoff:[22,0], size:[24,135]},
+				{code:"Return Policy", url:"return_policy.htm"
+				},
+				{code:"Legal Notices", url:"legalities.htm"
+				},
+				{code:"Site Map", url:"sitemap.htm"
+				},
+				{code:"Product Quick View", url:"products_quickview.htm"
+				},
+				{code:"Panel Profiles", url:"panel-profiles.htm"
+				},
+				{code:"CAD Drawings", url:"cad_drawings.htm"
+				},
+				{code:"Load Tables", url:"load_tables.htm"
+				},
+				{code:"Specifications Data", url:"spec-data.htm", format:{size:[26,135]}
+				}
+		]
+	},
+
+	{code:"Metal Siding and Roofing Panels", url:"metal_siding.htm", format:{itemoff:[22,0], size:[42,142]},
+		sub:[
+			{itemoff:[22,0], size:[24,135]},
+			{code:"Metal Siding", url:"metal_siding.htm",
+				sub:[
+					{leveloff:[0,135]},
+					{code:"Flexbeam", url:"panel_flexbeam.htm"
+					},
+					{code:"Flexrib", url:"panel_flexrib.htm"
+					},
+					{code:"Vertarib", url:"panel_vertarib.htm"
+					},
+					{code:"Corrugated 1/2&quot;", url:"panel_corrugated12.htm"
+					},
+					{code:"Corrugated 3/4&quot;", url:"panel_corrugated34.htm"
+					},
+					{code:"Corrugated 7/8&quot;", url:"panel_corrugated78.htm"
+					},
+					{code:"R-Panel", url:"panel_r-panel.htm"
+					},
+					{code:"A-Panel", url:"panel_a-panel.htm"
+					},
+					{code:"FE-66", url:"panel_fe66.htm"
+					},
+					{code:"FE-12", url:"panel_fe12.htm", format:{size:[26,135]}
+					}
+				]
+			},
+			{code:"Through Fastened Metal Roofing", url:"metal_roofing_through_fastened.htm", format:{itemoff:[22,0], size:[42,135]},
+				sub:[
+					{itemoff:[22,0], leveloff:[0,135], size:[24,135]},
+					{code:"Flexbeam", url:"panel_flexbeam.htm"
+					},
+					{code:"Flexrib", url:"panel_flexrib.htm"
+					},
+					{code:"Corrugated 1/2&quot;", url:"panel_corrugated12.htm"
+					},
+					{code:"Corrugated 3/4&quot;", url:"panel_corrugated34.htm"
+					},
+					{code:"Corrugated 7/8&quot;", url:"panel_corrugated78.htm"
+					},
+					{code:"R-Panel", url:"panel_r-panel.htm", format:{size:[26,135]}
+					}
+				]
+			},
+			{code:"Standing Seam Metal Roofing", url:"metal_roofing_standing_seam.htm", format:{itemoff:[40,0], size:[42,135]},
+				sub:[
+					{itemoff:[22,0], leveloff:[0,135], size:[24,135]},
+					{code:"FSS-1.5", url:"panel_fss15.htm"
+					},
+					{code:"FSS-18", url:"panel_fss18.htm"
+					},
+					{code:"FSS-316", url:"panel_fss316.htm", format:{size:[26,135]}
+					}
+				]
+			},
+			{code:"Liner Panels", url:"panel_liners.htm", format:{itemoff:[40,0], size:[24,135]},
+				sub:[
+					{itemoff:[22,0], leveloff:[0,135], size:[24,135]},
+					{code:"FL-24", url:"panel_fl24.htm"
+					},
+					{code:"FE-12", url:"panel_fe12.htm"
+					},
+					{code:"Corrugated 1/2&quot;", url:"panel_corrugated12.htm"
+					},
+					{code:"Corrugated 3/4&quot;", url:"panel_corrugated34.htm"
+					},
+					{code:"Corrugated 7/8&quot;", url:"panel_corrugated78.htm"
+					},
+					{code:"Flexbeam", url:"panel_flexbeam.htm"
+					},
+					{code:"Flexrib", url:"panel_flexrib.htm"
+					},
+					{code:"Vertarib", url:"panel_vertarib.htm"
+					},
+					{code:"R-Panel", url:"panel_r-panel.htm"
+					},
+					{code:"A-Panel", url:"panel_a-panel.htm", format:{size:[26,135]}
+					}
+				]
+			},
+			{code:"Acoustical Panel", url:"panel_acoustical.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Firewall Panel", url:"panel_firewall.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Explosion Relief", url:"panel_explosion.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Curved Roof Panel", url:"panel_curved.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Panel Materials", url:"panel_materials.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Panel Coatings", url:"panel_coatings.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Panel Colors", url:"panel_colors.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Specifications Form", url:"specs.htm", format:{size:[26,135]},
+				sub:[
+					{},
+//					{code:"Roofing & Siding", url:"specs_both.htm"
+//					},
+//					{code:"Roofing Only", url:"specs_roof.htm"
+//					},
+//					{code:"Siding Only", url:"specs_side.htm"
+//					}
+				]
+			}
+		]
+	},
+	{code:"Purlin and Girt", url:"products_zees1.htm", format:{itemoff:[40,0], size:[24,142]},
+		sub:[
+			{itemoff:[22,0], size:[24,135]},
+			{code:"Zee Purlin and Girt", url:"products_zees1.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Cee Purlin and Girt", url:"products_cees1.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Purlin & Girt Clips", url:"products_purlin&girt.htm",
+				sub:[
+					{},
+				]
+			},
+			{code:"Structural Accessories", url:"products_accessories.htm", format:{size:[44,135]},
+				sub:[
+					{},
+				]
+			}
+		]
+	},
+	{code:"B Deck", url:"panel_bdecking.htm", format:{itemoff:[22,0], size:[24,142]},
+		sub:[
+			{itemoff:[22,0], size:[24,152]},
+			{code:"B Decking Profile", url:"panel_bdecking.htm"
+			},
+			{code:"Roof Deck Load Table", url:"panel_bdecking_roofdeck.htm"
+			},
+			{code:"Floor Deck Load Table", url:"panel_bdecking_floordeck3.htm"
+			},
+			{code:"Concrete Load Table", url:"panel_bdecking_floordeck4.htm", format:{size:[26,152]}
+			}
+		]
+	},
+	{code:"Self Storage Buildings", url:"selfstorage_design.htm", format:{itemoff:[22,0], size:[42,142]},
+		sub:[
+			{},
+			{code:"Introduction", url:"selfstorage.htm", format:{itemoff:[22,0], size:[24,135]}
+			},
+			{code:"Load Bearing Wall System", url:"selfstorage_load.htm", format:{itemoff:[22,0], size:[42,135]}
+			},
+			{code:"Building Design", url:"selfstorage_design.htm", format:{itemoff:[40,0], size:[24,135]},
+				sub:[
+					{itemoff:[22,0], size:[24,135]},
+					{code:"Single Level", url:"selfstorage_single.htm"
+					},
+					{code:"Multi Level", url:"selfstorage_multi.htm"
+					},
+					{code:"RV & Boat Storage", url:"selfstorage_rvboat.htm"
+					},
+					{code:"Climate Control", url:"selfstorage_climate.htm"
+					},
+					{code:"Split Elevations", url:"selfstorage_split.htm"
+					},
+					{code:"Custom Options", url:"selfstorage_custom.htm"
+					},
+					{code:"Building Colors", url:"selfstorage_colors.htm", format:{size:[26,135]}
+					}
+				]
+			},
+			{code:"Features", url:"selfstorage_features.htm", format:{itemoff:[22,0], size:[24,135]}
+			},
+			{code:"Roof and Wall Systems", url:"selfstorage_roof.htm", format:{itemoff:[22,0], size:[42,135]}
+			},
+			{code:"Erection Sequence", url:"selfstorage_erect.htm", format:{itemoff:[40,0], size:[24,135]}
+			},
+			{code:"Fequently Asked Questions  (FAQ)", url:"selfstoragefaq1.htm", format:{itemoff:[22,0], size:[44,135]}
+			}
+		]
+	},
+	{code:"Pre-Engineered &nbsp; Metal Buildings", url:"mb_metal_buildings.htm", format:{itemoff:[40,0], size:[42,142]},
+			sub:[
+				{itemoff:[22,0], size:[24,115]},
+				{code:"Metal Siding", url:"metal_siding.htm"
+				},
+				{code:"Metal Roofing", url:"metal_roofing_through_fastened.htm"
+				},
+				{code:"Standing Seam", url:"metal_roofing_standing_seam.htm"
+				},
+				{code:"Purlin & Girt", url:"products_zees1.htm"
+				},
+				{code:"Panel Materials", url:"panel_materials.htm"
+				},
+				{code:"Panel Coatings", url:"panel_coatings.htm"
+				},
+				{code:"Panel Colors", url:"panel_colors.htm", format:{size:[26,115]}
+				}
+			]
+	},
+	{code:"Retrofit Roofing", url:"products_flex.htm", format:{itemoff:[40,0], size:[24,142]},
+		sub:[
+			{},
+		]
+	},
+	{code:"Other Specialties", url:"specialty_metal_siding_roofing.htm", format:{itemoff:[22,0], size:[24,142]},
+			sub:[
+				{itemoff:[22,0], size:[24,135]},
+				{code:"Heavy Gauge", url:"industrial_commercial_roofing_siding_state.htm"
+				},
+				{code:"Vinyl Plastisol", url:"corrosive_protective_finish.htm"
+				},
+				{code:"Stainless Steel", url:"stainless_steel.htm"
+				},
+				{code:"Perforated", url:"perforated_metal_panels.htm"
+				},
+				{code:"Horizontal", url:"horizontal_metal_panels.htm"
+				},
+				{code:"Radiant Reflective", url:"radiant_reflective_roofing.htm"
+				},
+				{code:"Conveyor Covers", url:"industrial_conveyor_system_cover.htm"
+				},
+				{code:"Fiberglass", url:"fiberglass_industrial.htm"
+				},
+				{code:"Compressor Noise Reduction", url:"compressornoise.htm", format:{itemoff:[22,0], size:[44,135]}
+				}
+			]
+	},
+	{code:"Specifications Data", url:"spec-data.htm", format:{itemoff:[22,0], size:[24,142]},
+			sub:[
+				{itemoff:[22,0], size:[24,152]},
+				{code:"Downloadable Specs", url:"section.htm"
+				},
+				{code:"ARCAT SpecWizard", url:"http://www.arcat.com/specwizard/07410fle/index.htm", target:"_blank"
+				},
+				{code:"ARCAT Specifications", url:"http://www.arcat.com/sd/clients/flexospa.html?coid=32547", target:"_blank"
+				},
+				{code:"ARCAT CAD Details", url:"http://www.arcat.com/details/flexospa/flexospa.html?coid=32547", target:"_blank"
+				},
+				{code:"ARCAT Bim Objects", url:"http://www.arcat.com/bim/flexospa/flexospa.shtml?coid=32547", target:"_blank"
+				},
+				{code:"ARCAT Catalog", url:"http://www.arcat.com/arcatcos/cos32/arc32547.html", target:"_blank"
+				},
+				{code:"THOMASNET Catalog", url:"http://www.thomasnet.com/productsearch/browse/159223-12981--/flexospan-steel-buildings-inc/?", target:"_blank"
+				},
+				{code:"ONSITE Specifications", url:"csi_specs.htm", format:{size:[26,152]},
+					sub:[
+						{itemoff:[22,0], leveloff:[0,152], size:[24,125]},
+						{code:"Flexbeam", url:"panel_flexbeam.htm#specs"
+						},
+						{code:"Flexrib", url:"panel_flexrib.htm#specs"
+						},
+						{code:"Vertarib", url:"panel_vertarib.htm#specs"
+						},
+						{code:"1/2' Corrugated", url:"panel_corrugated12.htm#specs"
+						},
+						{code:"3/4' Corrugated", url:"panel_corrugated34.htm#specs"
+						},
+						{code:"7/8' Corrugated", url:"panel_corrugated78.htm#specs"
+						},
+						{code:"FSS-18", url:"panel_fss18.htm#specs"
+						},
+						{code:"FSS-316", url:"panel_fss316.htm#specs", format:{size:[26,125]}
+						}
+					]
+				}
+			]
+	},
+	{code:"LEED Certification", url:"leed_certification.html", format:{itemoff:[22,0], size:[24,142]},
+			sub:[
+				{itemoff:[22,0], size:[24,135]},
+				{code:"Reflective Panels", url:"leed_metal_roofing_siding_rating.htm"
+				}
+			]
+	},
+	{code:"About Us", url:"about_us.htm", format:{itemoff:[22,0], size:[26,142]},
+		sub:[
+			{itemoff:[40,0], size:[42,142]},
+			{code:"Commercial and Industrial Division", url:"commercial.htm",
+				sub:[
+					{size:[24,142]},
+					{code:"Product Overview", url:"commercial_products.htm"
+					}
+				]
+			},
+			{code:"Self Storage Division", url:"selfstorage_design.htm", format:{itemoff:[40,0], size:[24,142]},
+				sub:[
+					{},
+				]
+			},
+			{code:"Project List", url:"projects.htm", format:{itemoff:[22,0], size:[24,142]},
+				sub:[
+					{},
+				]
+			},
+			{code:"Project Photos", url:"photos.htm", format:{itemoff:[22,0], size:[24,142]},
+				sub:[
+					{},
+					{code:"Commercial", url:"photos_commercial.htm"
+					},
+					{code:"Industrial", url:"photos_industrial.htm"
+					},
+					{code:"Self Storage", url:"photos_self.htm"
+					}
+				]
+			},
+			{code:"Testimonials", url:"testimonials.htm", format:{itemoff:[22,0], size:[24,142]},
+				sub:[
+					{},
+					{code:"Jim White", url:"testimony_jimwhite.htm"
+					},
+					{code:"Tony Papalas", url:"testimony_papalas.htm"
+					}
+				]
+			},
+			{code:"Customer Service", url:"customer_service.htm", format:{itemoff:[22,0], size:[24,142]},
+					sub:[
+					{},
+				]
+			},
+			{code:"Request Form", url:"customer_request.htm", format:{itemoff:[22,0], size:[24,142]}
+			},
+			{code:"Driving Directions", url:"directions.htm", format:{itemoff:[22,0], size:[26,142]},
+					sub:[
+					{},
+				]
+			}
+		]
+	}
+];

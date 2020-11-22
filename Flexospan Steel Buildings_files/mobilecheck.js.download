@@ -1,0 +1,32 @@
+function detect() {
+       var uagent = navigator.userAgent.toLowerCase();
+       var mobile = false;
+       var search_strings = [
+           "iphone",
+           "ipod",
+           "ipad",
+           "series60",
+           "symbian",
+           "android",
+           "windows ce",
+           "windows7phone",
+           "w7p",
+           "blackberry",
+           "bb",
+           "palm",
+           "iemobile",
+           "opera mobile",
+           "palmos",
+           "webos",
+           "googlebot-mobile",
+           "symbian"
+       ];
+       for (i in search_strings) {
+           if (uagent.search(search_strings[i]) > -1) mobile = true;
+       }
+       return mobile;
+   }
+
+var ref = document.referrer.substr(0, 16);
+if ((ref != "https://www.flex") && (ref != "https://m.flexos"))
+   if (detect()) window.location = "https://m.flexospan.com";
